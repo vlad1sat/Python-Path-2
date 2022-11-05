@@ -18,11 +18,13 @@ with open('registrations.txt', 'r', encoding='utf-8') as information:
             print('Поле «Возраст» НЕ является числом от 10 до 99: ValueError.')
             bad_data += ''.join([line, ' ', 'Поле «Возраст» НЕ является числом от 10 до 99', '\n'])
         except SyntaxError:
+            print('Поле «Имейл» НЕ содержит @ и .(точку): SyntaxError')
             bad_data += ''.join([line, ' ', 'Поле «Имейл» НЕ содержит @ и .(точку)', '\n'])
         except IndexError:
             print('НЕ присутствуют все три поля: IndexError.')
             bad_data += ''.join([line, ' ', 'НЕ присутствуют все три поля', '\n'])
         except NameError:
+            print('Поле имени содержит НЕ только буквы: NameError')
             bad_data += ''.join([line, ' ', 'Поле имени содержит НЕ только буквы', '\n'])
         else:
             good_data = ''.join([line, '\n'])
