@@ -8,101 +8,93 @@ class House:
     dirt = 0
 
 
-class Resident:
-    def __init__(self, name, satiety, happiness):
-        self.name = name
-        self.satiety = satiety
-        self.happiness = happiness
+class Person:
+    def __init__(self, name):
+        self.__name = name
+        self.satiety = 30
+        self.happiness = 100
+
+    @property
+    def name(self):
+        return self.__name
 
     def eat(self):
-        self.satiety += 30
-        House.food -= 30
-        print(f'{self.name} ест')
+        count_eat_food = 0
+        while House.food <= 0 or count_eat_food == 0:
+            self.satiety += 1
+            count_eat_food += 1
+            House.food -= 1
+        print('{} ест'.format(self.name))
 
 
-class Husband(Resident):
-    def __init__(self, name, satiety=30, happiness=100):
-        super().__init__(name, satiety, happiness)
+class RelaxWithCat(Person):
+
+    def prettying_cat(self):
+        self.happiness += 5
+        self.satiety -= 10
+        print('{} гладит кота'.format(self.name))
+
+
+class Husband(RelaxWithCat, Person):
+    def __init__(self, name):
+        super().__init__(name)
         self.work = 150
 
     def work_day(self):
         House.money += self.work
         self.satiety -= 10
-        print(f'Муж идет на работу, деньги {House.money}')
+        print('Муж идет на работу, деньги {}'.format(House.money))
 
     def game(self):
         self.happiness += 20
         self.satiety -= 10
         print('Муж играет')
 
-    def pretting_cat(self):
-        self.happiness += 5
-        self.satiety -= 10
-        print('Муж гладит кота')
 
-    def __str__(self):
-        return f'{self.name}'
-
-
-class Wife(Resident):
-    def __init__(self, name, satiety=30, happiness=100):
-        super().__init__(name, satiety, happiness)
+class Wife(Person):
 
     def buy_food(self):
         self.satiety -= 10
         House.food += 100
         House.money -= 100
-        print(f'Жена идет в магазин, еда {House.food} деньги {House.money}')
+        print('Жена идет в магазин, еда {0} деньги {1}'.format(House.food, House.money))
 
     def buy_cat_food(self):
         self.satiety -= 10
         House.cat_food += 50
         House.money -= 50
-        print(f'Жена покупает еду коту, еда кота {House.cat_food} деньги {House.money}')
-
-    def pretting_cat(self):
-        self.happiness += 5
-        self.satiety -= 10
-        print('Жена Гладит кота')
+        print('Жена покупает еду коту, еда кота {0} деньги {1}'.format(House.cat_food, House.money))
 
     def purchase(self):
         House.money -= 350
         self.happiness += 60
         self.satiety -= 10
-        print(f'Жена покупает шубу, деньги {House.money}')
+        print('Жена покупает шубу, деньги {}'.format(House.money))
 
     def cleaning(self):
         House.dirt -= 10
         self.satiety -= 10
 
-    def __str__(self):
-        return f'{self.name}'
 
-
-class Cat(Resident):
-    def __init__(self, name, satiety=30):
-        super().__init__(name, satiety, happiness=100)
+class Cat(Person):
 
     def eat(self):
         self.satiety += 20
         House.cat_food -= 10
-        print('Кот ест ')
+        print('Кот ест')
 
-    def slip(self):
+    def sleep(self):
         self.satiety -= 10
-        return f'Кот спит'
+        print('Кот спит')
 
     def shitting(self):
         self.satiety -= 10
         House.dirt += 5
-        print(f'Кот подрал обои')
-
-    def __str__(self):
-        return f'{self.name}'
+        print('Кот подрал обои')
 
 
-husband = Husband(name='Гриша')
-wife = Wife(name='Лола')
+husband = Husband('Гриша')
+wife = Wife('Лола')
 cat = Cat('Лакки')
 
 for day in range(1, 366):
@@ -118,13 +110,14 @@ for day in range(1, 366):
         print(f'К сожалению, {person.name} умер от депрессии ')
         break
 
-    if isinstance(cat, Cat) and House.cat_food >= 20:
-        cat.eat()
-    elif isinstance(cat, Cat):
-        if random.randint(1, 2) == 1:
-            cat.shitting()
+    if isinstance(cat, Cat):
+        if House.cat_food >= 20:
+            cat.eat()
         else:
-            print('Кот спит')
+            if random.randint(1, 2) == 1:
+                cat.shitting()
+            else:
+                cat.sleep()
 
     if House.dirt >= 90:
         wife.happiness -= 10
@@ -136,7 +129,7 @@ for day in range(1, 366):
         elif husband.happiness <= 50:
             husband.game()
         elif husband.happiness <= 40:
-            husband.pretting_cat()
+            husband.prettying_cat()
         elif House.food >= 30:
             husband.eat()
 
