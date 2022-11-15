@@ -6,10 +6,8 @@ class MyStack:
     def push(self, element):
         self.__stack.append(element)
 
-    def pop_stack(self):
-        if len(self.__stack) == 0:
-            return None
-        return self.__stack.pop()
+    def pop(self):
+        return self.__stack.pop() if len(self.__stack) else None
 
     def clean(self):
         self.__stack = list()
@@ -49,10 +47,18 @@ class TaskManager:
         return result
 
 
-manager = TaskManager()
-manager.new_task("сделать уборку", 4)
-manager.new_task("помыть посуду", 4)
-manager.new_task("отдохнуть", 1)
-manager.new_task("поесть", 2)
-manager.new_task("сдать дз", 2)
-print(manager)
+# manager = TaskManager()
+# manager.new_task("сделать уборку", 4)
+# manager.new_task("помыть посуду", 4)
+# manager.new_task("отдохнуть", 1)
+# manager.new_task("поесть", 2)
+# manager.new_task("сдать дз", 2)
+# print(manager)
+
+
+s = MyStack(1, 2)
+print(s.pop())
+print(s.pop())
+print(s.pop())
+
+
