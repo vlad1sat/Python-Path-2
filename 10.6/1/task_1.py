@@ -7,6 +7,6 @@ with open('people.txt', 'r', encoding='utf-8') as names:
             if len(name) < 5:
                 raise BaseException
         except BaseException:
-            print("Ошибка: менее трёх символов в строке 5.")
+            print("Ошибка: менее трёх символов в строке 6.")
 
 print("Общее количество символов:", count_symbols)
