@@ -1,12 +1,11 @@
 from typing import Callable, Any
-from functools import wraps
+import functools
 from time import sleep
 
 
 def wait_time(seconds: int) -> Callable:
     def wait(func: Callable) -> Callable:
-        wraps(func)
-
+        @functools.wraps(func)
         def wrapped_func(*args, **kwargs) -> Any:
             sleep(seconds)
             return func(*args, **kwargs)

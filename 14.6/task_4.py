@@ -1,10 +1,9 @@
 from typing import Callable, Any
-from functools import wraps
+import functools
 
 
 def debug(func: Callable) -> Callable:
-    wraps(func)
-
+    @functools.wraps(func)
     def wrapped_func(*args, **kwargs) -> Any:
         print('Вызывается {}({})'.format(func.__name__, ", ".join(
                 list(f"\"{arg}\""

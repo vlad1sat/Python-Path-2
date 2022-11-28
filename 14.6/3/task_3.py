@@ -1,11 +1,10 @@
 from typing import Callable, Any
-from functools import wraps
+import functools
 from datetime import datetime
 
 
 def logging(func: Callable) -> Callable:
-    wraps(func)
-
+    @functools.wraps(func)
     def wrapped_func(*args, **kwargs) -> Any:
         try:
             result = func(*args, **kwargs)

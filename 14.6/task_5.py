@@ -1,10 +1,9 @@
 from typing import Callable, Any
-from functools import wraps
+import functools
 
 
 def counter(func: Callable) -> Callable:
-    wraps(func)
-
+    @functools.wraps(func)
     def wrapper(*args, **kwargs) -> Any:
         wrapper.count += 1
         print('{} была вызвана: {}x'.format(func.__name__, wrapper.count))

@@ -1,14 +1,13 @@
 from typing import Callable, Any
-from functools import wraps
+import functools
 
 
-def how_are_you(function: Callable) -> Callable:
-    wraps(function)
-
+def how_are_you(func: Callable) -> Callable:
+    @functools.wraps(func)
     def wrapped_funct(*args, **kwargs) -> Any:
         input('Как дела? ')
         print('А у меня не очень! Ладно, держи свою функцию.')
-        return function(*args, **kwargs)
+        return func(*args, **kwargs)
     return wrapped_funct
 
 
