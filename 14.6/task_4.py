@@ -11,9 +11,9 @@ def debug(func: Callable) -> Callable:
                      if isinstance(arg, str) else
                      str(arg) for arg in args)
                 +
-                list(f"{k}=\"{v}\""
-                     if isinstance(v, str) else
-                     f"{k}={v}" for k, v in kwargs.items())
+                list(f"{key}=\"{value}\""
+                     if isinstance(value, str) else
+                     f"{key}={value}" for key, value in kwargs.items())
             )))
         result = func(*args, **kwargs)
         print('\'{}\' вернула значение \'{}\''.format(func.__name__, result))
