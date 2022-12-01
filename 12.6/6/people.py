@@ -35,7 +35,7 @@ class RelaxWithCat(Person):
         print('{} гладит кота'.format(self.name))
 
 
-class Husband(RelaxWithCat, Person):
+class Husband(RelaxWithCat):
     def __init__(self, name):
         super().__init__(name)
         self.work = 150
