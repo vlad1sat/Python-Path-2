@@ -2,28 +2,26 @@ from abc import ABC
 
 
 class Date(ABC):
-    __date = None
+
+    def __init__(self, day: int = 0, month: int = 0, year: int = 0) -> None:
+        self.__day = day
+        self.__month = month
+        self.__year = year
 
     @classmethod
-    def from_string(cls, user_date: str):
-        cls.__date = cls.data_processing(user_date)
-        return 'День:{} \tМесяц:{} \tГод:{}'.format(cls.__date[0], cls.__date[1], cls.__date[2])
+    def from_string(cls, user_date: str) -> 'Date':
+        day, month, year = map(int, user_date.split('-'))
+        return cls(day, month, year)
 
     @classmethod
     def is_date_valid(cls, user_date: str) -> bool:
-        format_date = cls.data_processing(user_date)
-        for index in range(3):
-            if format_date[index] != cls.__date[index]:
-                return False
-        return True
+        day, month, year = map(int, user_date.split('-'))
+        if 1 <= day <= 31 and 1 <= month <= 31 and 0 <= year <= 9999:
+            return True
+        return False
 
-    @classmethod
-    def data_processing(cls, user_data: str):
-        format_date = [int(element) for element in user_data.split('-')]
-        if len(format_date) == 3 and 1 <= format_date[0] <= 99 and 1 <= format_date[1] <= 99 and 1000 <= format_date[2] <= 9999:
-            return format_date
-        else:
-            raise TypeError
+    def __str__(self):
+        return 'День: {} \tМесяц: {} \tГод: {}'.format(self.__day, self.__month, self.__year)
 
 
 date = Date.from_string('10-12-2077')
