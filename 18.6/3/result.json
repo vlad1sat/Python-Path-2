@@ -1,0 +1,128 @@
+{
+    "ship-1": {
+        "ship-name": "CR90 corvette",
+        "starship_class": "corvette",
+        "max_atmosphering_speed": "950",
+        "pilots": []
+    },
+    "ship-2": {
+        "ship-name": "Star Destroyer",
+        "starship_class": "Star Destroyer",
+        "max_atmosphering_speed": "975",
+        "pilots": []
+    },
+    "ship-3": {
+        "ship-name": "Sentinel-class landing craft",
+        "starship_class": "landing craft",
+        "max_atmosphering_speed": "1000",
+        "pilots": []
+    },
+    "ship-4": {
+        "ship-name": "Death Star",
+        "starship_class": "Deep Space Mobile Battlestation",
+        "max_atmosphering_speed": "n/a",
+        "pilots": []
+    },
+    "ship-5": {
+        "ship-name": "Millennium Falcon",
+        "starship_class": "Light freighter",
+        "max_atmosphering_speed": "1050",
+        "pilots": [
+            {
+                "name": "Chewbacca",
+                "height": "228",
+                "mass": "112",
+                "homeworld": "Kashyyyk",
+                "homeworld_url": "https://swapi.dev/api/planets/14/"
+            },
+            {
+                "name": "Han Solo",
+                "height": "180",
+                "mass": "80",
+                "homeworld": "Corellia",
+                "homeworld_url": "https://swapi.dev/api/planets/22/"
+            },
+            {
+                "name": "Lando Calrissian",
+                "height": "177",
+                "mass": "79",
+                "homeworld": "Socorro",
+                "homeworld_url": "https://swapi.dev/api/planets/30/"
+            },
+            {
+                "name": "Nien Nunb",
+                "height": "160",
+                "mass": "68",
+                "homeworld": "Sullust",
+                "homeworld_url": "https://swapi.dev/api/planets/33/"
+            }
+        ]
+    },
+    "ship-6": {
+        "ship-name": "Y-wing",
+        "starship_class": "assault starfighter",
+        "max_atmosphering_speed": "1000km",
+        "pilots": []
+    },
+    "ship-7": {
+        "ship-name": "X-wing",
+        "starship_class": "Starfighter",
+        "max_atmosphering_speed": "1050",
+        "pilots": [
+            {
+                "name": "Luke Skywalker",
+                "height": "172",
+                "mass": "77",
+                "homeworld": "Tatooine",
+                "homeworld_url": "https://swapi.dev/api/planets/1/"
+            },
+            {
+                "name": "Biggs Darklighter",
+                "height": "183",
+                "mass": "84",
+                "homeworld": "Tatooine",
+                "homeworld_url": "https://swapi.dev/api/planets/1/"
+            },
+            {
+                "name": "Wedge Antilles",
+                "height": "170",
+                "mass": "77",
+                "homeworld": "Corellia",
+                "homeworld_url": "https://swapi.dev/api/planets/22/"
+            },
+            {
+                "name": "Jek Tono Porkins",
+                "height": "180",
+                "mass": "110",
+                "homeworld": "Bestine IV",
+                "homeworld_url": "https://swapi.dev/api/planets/26/"
+            }
+        ]
+    },
+    "ship-8": {
+        "ship-name": "TIE Advanced x1",
+        "starship_class": "Starfighter",
+        "max_atmosphering_speed": "1200",
+        "pilots": [
+            {
+                "name": "Darth Vader",
+                "height": "202",
+                "mass": "136",
+                "homeworld": "Tatooine",
+                "homeworld_url": "https://swapi.dev/api/planets/1/"
+            }
+        ]
+    },
+    "ship-9": {
+        "ship-name": "Executor",
+        "starship_class": "Star dreadnought",
+        "max_atmosphering_speed": "n/a",
+        "pilots": []
+    },
+    "ship-10": {
+        "ship-name": "Rebel transport",
+        "starship_class": "Medium transport",
+        "max_atmosphering_speed": "650",
+        "pilots": []
+    }
+}
